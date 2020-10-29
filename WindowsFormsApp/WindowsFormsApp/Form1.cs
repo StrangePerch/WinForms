@@ -279,6 +279,13 @@ namespace WindowsFormsApp
             Form2 form = new Form2(station_statistic,cafe_statistic,total_statistic);
             form.Show();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = DateTime.Today.ToShortDateString();
+            toolStripStatusLabel2.Text = DateTime.Now.ToShortTimeString();
+            toolStripStatusLabel3.Text = DateTime.Today.DayOfWeek.ToString();
+        }
     }
 
     class Product
