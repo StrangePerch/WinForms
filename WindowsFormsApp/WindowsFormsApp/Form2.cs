@@ -12,41 +12,36 @@ namespace WindowsFormsApp
 {
     public partial class Form2 : Form
     {
-        private List<double> profit;
-        private List<double> calc;
-        public Form2(List<double> profit)
+        private Dictionary<string, List<double>> total_statistic;
+        private List<double> cafe_statistic;
+        private List<double> station_statistic;
+
+        public Form2(List<double> station, List<double> cafe, Dictionary<string, List<double>> total)
         {
             InitializeComponent();
-            this.profit = profit;
-            calc = new List<double>();
 
-            LabelMax.Text = profit.Max().ToString("F");
-            LabelMin.Text = profit.Min().ToString("F");
-        }
+            total_statistic = total;
+            cafe_statistic = cafe;
+            station_statistic = station;
 
-        private void Form2_Paint(object sender, PaintEventArgs e)
-        {
-            double max = profit.Max();
-            double min = profit.Min();
-            foreach (var i in profit)
+            for (int i = 0; i < cafe_statistic.Count; i++)
             {
-                calc.Add((i - min) / max);
+                chart1.Series["CafeProfit"].Points.AddXY(i, cafe_statistic[i]);
+                chart1.Series["GasStationProfit"].Points.AddXY(i, station_statistic[i]);
             }
 
-            Graphics paint = e.Graphics;
-            int step = (this.Width - 100) / profit.Count;
-            Pen pen = new Pen(Color.Green, 3);
-            for (int i = 0; i < calc.Count; i++)
+            chart2.Series.Clear();
+            foreach (var obj in total_statistic)
             {
-                int minx = 300;
-                int maxy = 100;
-                int x = 100 + step * i;
-                int h1;
-                if (i == 0) h1 = minx;
-                else h1 = minx - Convert.ToInt32(maxy * calc[i - 1]);
-                int h2 = minx - Convert.ToInt32(maxy * calc[i]);
-                paint.DrawLine(pen, x, h1, x + step, h2);
+                chart2.Series.Add(obj.Key);
+                double sum = 0;
+                foreach (var val in obj.Value)
+                {
+                    sum += val;
+                }
+                chart2.Series[obj.Key].Points.AddY(sum);
             }
+
         }
     }
 }

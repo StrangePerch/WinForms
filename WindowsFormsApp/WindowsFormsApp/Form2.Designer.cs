@@ -28,48 +28,75 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.LabelMax = new System.Windows.Forms.Label();
-            this.LabelMin = new System.Windows.Forms.Label();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
             // 
-            // LabelMax
+            // chart1
             // 
-            this.LabelMax.AutoSize = true;
-            this.LabelMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelMax.Location = new System.Drawing.Point(69, 85);
-            this.LabelMax.Name = "LabelMax";
-            this.LabelMax.Size = new System.Drawing.Size(64, 31);
-            this.LabelMax.TabIndex = 0;
-            this.LabelMax.Text = "Max";
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
+            this.chart1.Location = new System.Drawing.Point(12, 12);
+            this.chart1.Name = "chart1";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedArea;
+            series4.Legend = "Legend1";
+            series4.Name = "CafeProfit";
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedArea;
+            series5.Legend = "Legend1";
+            series5.Name = "GasStationProfit";
+            this.chart1.Series.Add(series4);
+            this.chart1.Series.Add(series5);
+            this.chart1.Size = new System.Drawing.Size(776, 220);
+            this.chart1.TabIndex = 13;
+            this.chart1.Text = "chart1";
             // 
-            // LabelMin
+            // chart2
             // 
-            this.LabelMin.AutoSize = true;
-            this.LabelMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelMin.Location = new System.Drawing.Point(69, 323);
-            this.LabelMin.Name = "LabelMin";
-            this.LabelMin.Size = new System.Drawing.Size(57, 31);
-            this.LabelMin.TabIndex = 1;
-            this.LabelMin.Text = "Min";
+            chartArea4.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart2.Legends.Add(legend4);
+            this.chart2.Location = new System.Drawing.Point(12, 239);
+            this.chart2.Name = "chart2";
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.chart2.Series.Add(series6);
+            this.chart2.Size = new System.Drawing.Size(776, 199);
+            this.chart2.TabIndex = 14;
+            this.chart2.Text = "chart2";
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.LabelMin);
-            this.Controls.Add(this.LabelMax);
+            this.Controls.Add(this.chart2);
+            this.Controls.Add(this.chart1);
             this.Name = "Form2";
-            this.Text = "Form2";
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form2_Paint);
+            this.Text = "Статистика";
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label LabelMax;
-        private System.Windows.Forms.Label LabelMin;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
     }
 }
