@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp
 {
-    partial class Form1
+    partial class UserForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
             this.GasStationGroup = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -64,6 +64,8 @@
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.GasStationGroup.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -72,6 +74,7 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // GasStationGroup
@@ -87,7 +90,7 @@
             this.GasStationGroup.Controls.Add(this.label2);
             this.GasStationGroup.Controls.Add(this.comboBox1);
             this.GasStationGroup.Controls.Add(this.label1);
-            this.GasStationGroup.Location = new System.Drawing.Point(23, 20);
+            this.GasStationGroup.Location = new System.Drawing.Point(23, 28);
             this.GasStationGroup.Name = "GasStationGroup";
             this.GasStationGroup.Size = new System.Drawing.Size(258, 306);
             this.GasStationGroup.TabIndex = 0;
@@ -226,11 +229,6 @@
             this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "A-92",
-            "A-95",
-            "Diesel",
-            "Gas"});
             this.comboBox1.Location = new System.Drawing.Point(67, 32);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(158, 21);
@@ -252,7 +250,7 @@
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.groupBox4);
-            this.groupBox3.Location = new System.Drawing.Point(300, 20);
+            this.groupBox3.Location = new System.Drawing.Point(300, 28);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(268, 306);
             this.groupBox3.TabIndex = 11;
@@ -323,7 +321,7 @@
             this.groupBox5.Controls.Add(this.pictureBox1);
             this.groupBox5.Controls.Add(this.button1);
             this.groupBox5.Controls.Add(this.label10);
-            this.groupBox5.Location = new System.Drawing.Point(23, 343);
+            this.groupBox5.Location = new System.Drawing.Point(23, 351);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(545, 137);
             this.groupBox5.TabIndex = 11;
@@ -387,7 +385,7 @@
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2,
             this.toolStripStatusLabel3});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 483);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 501);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(594, 22);
             this.statusStrip1.TabIndex = 12;
@@ -417,16 +415,37 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // Form1
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.toolStrip1.Size = new System.Drawing.Size(594, 25);
+            this.toolStrip1.TabIndex = 13;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(50, 22);
+            this.toolStripButton1.Text = "User";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 505);
+            this.ClientSize = new System.Drawing.Size(594, 523);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.GasStationGroup);
-            this.Name = "Form1";
+            this.Name = "UserForm";
             this.Text = " МегаКасса";
             this.GasStationGroup.ResumeLayout(false);
             this.GasStationGroup.PerformLayout();
@@ -443,6 +462,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -484,6 +505,8 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }
 

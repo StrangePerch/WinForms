@@ -13,32 +13,38 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace WindowsFormsApp
 {
-    public partial class Form1 : Form
+    public partial class UserForm : Form
     {
-        private double a92 = 22.7;
-        private double a95 = 23.85;
-        private double diesel = 22.78;
-        private double gas = 11.75;
 
         private int counter = 0;
+
+        private AdminForm form;
 
         private Dictionary<string, List<double>> total_statistic;
         private List<double> cafe_statistic;
         private List<double> station_statistic;
+        private Dictionary<string, double> fuel;
         private List<Product> products;
         private List<CheckBox> checkBoxes;
         private List<NumericUpDown> numericUpDowns;
         private List<TextBox> textBoxes;
-        public Form1()
+        public UserForm()
         {
 
             InitializeComponent();
 
+            form = new AdminForm(Switch);
+            form.FormClosing += delegate { Close(); };
             cafe_statistic = new List<double>();
             station_statistic = new List<double>();
-            
 
-            comboBox1.SelectedIndex = 0;
+            fuel = new Dictionary<string, double>
+            {
+                {"A92", 22.7},
+                {"A95", 23.85},
+                {"Diesel", 22.78},
+                {"Gas", 11.75}
+            };
 
             products = new List<Product>
             {
@@ -54,10 +60,14 @@ namespace WindowsFormsApp
 
             total_statistic = new Dictionary<string, List<double>>(products.Count + 4);
 
-            total_statistic.Add("A-92", new List<double>());
-            total_statistic.Add("A-95", new List<double>());
-            total_statistic.Add("Diesel", new List<double>());
-            total_statistic.Add("Gas", new List<double>());
+
+            foreach (var obj in fuel)
+            {
+                total_statistic.Add(obj.Key, new List<double>());
+                comboBox1.Items.Add(obj.Key);
+            }
+
+            comboBox1.SelectedIndex = 0;
 
             foreach (var item in products)
             {
@@ -239,25 +249,10 @@ namespace WindowsFormsApp
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int index = comboBox1.SelectedIndex;
             double cost = 0;
-            switch (index)
-            {
-                case 0:
-                    cost = a92;
-                    break;
-                case 1:
-                    cost = a95;
-                    break;
-                case 2:
-                    cost = diesel;
-                    break;
-                case 3:
-                    cost = gas;
-                    break;
-                default: cost = 0;
-                    break;
-            }
+
+            if(fuel.ContainsKey(comboBox1.Text))
+                cost = fuel[comboBox1.Text];
 
             textBox1.Text = cost.ToString("F");
         }
@@ -276,7 +271,7 @@ namespace WindowsFormsApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form2 form = new Form2(station_statistic,cafe_statistic,total_statistic);
+            StatisticForm form = new StatisticForm(station_statistic,cafe_statistic,total_statistic);
             form.Show();
         }
 
@@ -286,9 +281,23 @@ namespace WindowsFormsApp
             toolStripStatusLabel2.Text = DateTime.Now.ToShortTimeString();
             toolStripStatusLabel3.Text = DateTime.Today.DayOfWeek.ToString();
         }
-    }
 
-    class Product
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            form.Location = Location;
+            form.StartPosition = FormStartPosition.Manual;
+            form.Show(fuel,products);
+            Hide();
+        }
+
+        private void Switch()
+        {
+            Location = form.Location;
+            StartPosition = FormStartPosition.Manual;
+            Show();
+        }
+    }
+    public class Product
     {
         public string name;
         public double cost;

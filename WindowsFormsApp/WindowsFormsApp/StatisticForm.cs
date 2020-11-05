@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp
 {
-    public partial class Form2 : Form
+    public partial class StatisticForm : Form
     {
         private Dictionary<string, List<double>> total_statistic;
         private List<double> cafe_statistic;
         private List<double> station_statistic;
 
-        public Form2(List<double> station, List<double> cafe, Dictionary<string, List<double>> total)
+        public StatisticForm(List<double> station, List<double> cafe, Dictionary<string, List<double>> total)
         {
             InitializeComponent();
 

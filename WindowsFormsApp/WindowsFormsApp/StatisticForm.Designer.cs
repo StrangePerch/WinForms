@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp
 {
-    partial class Form2
+    partial class StatisticForm
     {
         /// <summary>
         /// Required designer variable.

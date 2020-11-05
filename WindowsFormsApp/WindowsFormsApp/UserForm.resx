@@ -756,4 +756,16 @@
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>133, 17</value>
   </metadata>
+  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>220, 17</value>
+  </metadata>
+  <data name="toolStripButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACuSURBVDhPzZIhDsJQEES/qEQiKzgA9+AASGQPwBGQCEQF
+        guMhkQhEBQJmCE02O0NpXV/yRHfnb3aTllmzh6+J8o3ggmMUXIg+YJdqUcGFDnABl/DyrWWFHLjBCvZw
+        mNtMyIErjHCzO8w5IQdoAwk345kuI7gQ5WY80/Wo4EJjFGLzCc9wB9dwBTewhfwdYlaIQ7Ys/KCG8VSh
+        b5w+X8Mc4d9BUxV4vwsOyTezpJQ3SbOebtixMS4AAAAASUVORK5CYII=
+</value>
+  </data>
 </root>
